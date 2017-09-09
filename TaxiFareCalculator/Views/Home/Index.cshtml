@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row" ng-controller="taxiFareController">
+    <div class="col-sm-6">
+        <div class="tab-content">
+            <form name="taxiFareForm" novalidate class="app-form" ng-submit="CalculateFare()">
+                <div id="frmView" class="tab-pane fade in active">
+                    <div class='form-row'>
+                        <div class='form-group'>
+                            <label class='control-label'>Ride Start Date/Time</label>
+                            <input autocomplete='off' ng-model="rideStartDateTime" class='form-control' size='20' type='datetime-local'>
+                        </div>
+                        @*<div class='form-group'>
+                            <label class='control-label'>Ride Start Date</label>
+                            <input autocomplete='off' ng-model="rideStartDate" class='form-control' size='20' type='date'>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label'>Ride Start Time</label>
+                            <input autocomplete='off' ng-model="rideStartTime" class='form-control' type='time'>
+                        </div>*@
+                        <div class='form-group'>
+                            <label class='control-label'>Number of miles driven below 6mph</label>
+                            <input class='form-control' ng-model="numberOfMilesDrivenBelow6mph" type='number'>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label'>Number of minutes driven at 6pmh and above</label>
+                            <input class='form-control' ng-model="numberOfMinutesDrivenAbove6mph" type='number'>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label'>Start Location</label>
+                            <input class='form-control' ng-model="rideStartLocation" type='text'>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label'>End Location</label>
+                            <input class='form-control' ng-model="rideEndLocation" type='text'>
+                        </div>
+                    </div>
+                    <div class='form-row'>
+                        <div class='form-group'>
+                            <label class='control-label'></label>
+                            <button class='form-control btn btn-primary' type="submit"> Calculate Fare →</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6">
+
+        <div class="jumbotron jumbotron-flat">
+            <div class="center"><h2><i>TOTAL TAXI FARE:</i></h2></div>
+            <div class="paymentAmt">{{totalFare | currency}}</div>
+        </div>
+        <br><br><br>
+    </div>
+</div>
