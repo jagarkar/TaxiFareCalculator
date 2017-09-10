@@ -24,6 +24,8 @@ taxiFareAppModule.directive('numbersOnly', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attr, ngModelCtrl) {
+            ngModelCtrl.$parsers.push(fromUser);
+
             function fromUser(text) {
                 if (text) {
                     var transformedInput = text.replace(/[^0-9]/g, '');
@@ -36,7 +38,14 @@ taxiFareAppModule.directive('numbersOnly', function () {
                 }
                 return undefined;
             }
-            ngModelCtrl.$parsers.push(fromUser);
+            
         }
+    };
+});
+
+taxiFareAppModule.directive("projectTitle", function () {
+    return {
+        restrict: "E",
+        template: "<h1>Taxi Fare Calculator</h1>"
     };
 });
