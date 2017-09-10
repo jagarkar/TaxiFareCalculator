@@ -1,8 +1,10 @@
-﻿var app = angular.module("taxiFareApp", []); 
-app.controller('taxiFareController', function ($scope, $http) {
+﻿var taxiFareAppModule = angular.module("taxiFareApp", []); 
+taxiFareAppModule.controller('taxiFareController', function ($scope, $http) {
+    $scope.rideStartDateTime = new Date();
+
     $scope.CalculateFare = function () {
 
-        var data = {            
+        var data = {
             numberOfMilesDrivenBelow6mph: $scope.numberOfMilesDrivenBelow6mph,
             numberOfMinutesDrivenAbove6mph: $scope.numberOfMinutesDrivenAbove6mph,
             rideStartDateTime: $scope.rideStartDateTime,
@@ -15,5 +17,5 @@ app.controller('taxiFareController', function ($scope, $http) {
                 var jsonData = JSON.parse(result.data);
                 $scope.totalFare = jsonData.TotalFare;
             });
-    }; 
+    };
 });

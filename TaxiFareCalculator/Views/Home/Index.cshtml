@@ -8,38 +8,31 @@
                 <div id="frmView" class="tab-pane fade in active">
                     <div class='form-row'>
                         <div class='form-group'>
-                            <label class='control-label'>Ride Start Date and Time</label>
-                            <input autocomplete='off' ng-model="rideStartDateTime" class='form-control' size='20' type='datetime-local'>
-                        </div>
-                        @*<div class='form-group'>
-                            <label class='control-label'>Ride Start Date</label>
-                            <input autocomplete='off' ng-model="rideStartDate" class='form-control' size='20' type='date'>
+                            <label class='control-label'>Ride Start Date and Time <span style="color: red;">*</span></label>
+                            <input autocomplete='off' ng-model="rideStartDateTime" name="rideStartDateTime" class='form-control' size='20' type='datetime-local' required>
+                            @*<span ng-show="taxiFareForm.rideStartDateTime.$touched && taxiFareForm.rideStartDateTime.$invalid">You can't leave this empty.</span>*@
                         </div>
                         <div class='form-group'>
-                            <label class='control-label'>Ride Start Time</label>
-                            <input autocomplete='off' ng-model="rideStartTime" class='form-control' type='time'>
-                        </div>*@
-                        <div class='form-group'>
-                            <label class='control-label'>Number of miles driven below 6mph</label>
-                            <input class='form-control' ng-model="numberOfMilesDrivenBelow6mph" type='number'>
+                            <label class='control-label'>Number of miles driven below 6mph <span style="color: red;">*</span></label>
+                            <input class='form-control' ng-model="numberOfMilesDrivenBelow6mph" type='number' required>
                         </div>
                         <div class='form-group'>
-                            <label class='control-label'>Number of minutes driven at 6pmh and above</label>
-                            <input class='form-control' ng-model="numberOfMinutesDrivenAbove6mph" type='number'>
+                            <label class='control-label'>Number of minutes driven at 6pmh and above <span style="color: red;">*</span></label>
+                            <input class='form-control' ng-model="numberOfMinutesDrivenAbove6mph" type='number' required>
                         </div>
                         <div class='form-group'>
-                            <label class='control-label'>Start Location</label>
-                            <input class='form-control' ng-model="rideStartLocation" type='text'>
+                            <label class='control-label'>Start Location <span style="color: red;">*</span></label>
+                            <input class='form-control' ng-model="rideStartLocation" type='text' required>
                         </div>
                         <div class='form-group'>
-                            <label class='control-label'>End Location</label>
-                            <input class='form-control' ng-model="rideEndLocation" type='text'>
+                            <label class='control-label'>End Location <span style="color: red;">*</span></label>
+                            <input class='form-control' ng-model="rideEndLocation" type='text' required>
                         </div>
                     </div>
                     <div class='form-row'>
                         <div class='form-group'>
                             <label class='control-label'></label>
-                            <button class='form-control btn btn-primary' type="submit"> Calculate Fare →</button>
+                            <button class='form-control btn btn-primary' type="submit" ng-disabled="taxiFareForm.$invalid"> Calculate Fare →</button>
 
                         </div>
                     </div>
