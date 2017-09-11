@@ -7,8 +7,10 @@ describe('angularJs Ctrl => ', function () {
 
     beforeEach(module("taxiFareApp"));
 
+    var scope, controller;
+
     describe('TaxiFareController Setup -', function () {
-        var scope, controller;
+        
         beforeEach(inject(function ($rootScope, $controller, $http) {
 
             scope = $rootScope.$new();
